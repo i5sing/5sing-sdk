@@ -11,7 +11,7 @@ var version = process.env.VERSION || require('../package.json').version;
 
 var banner =
     '/*!\n' +
-    ' * 5singSDK v' + version + '\n' +
+    ' * SingSdk v' + version + '\n' +
     ' * (c) ' + new Date().getFullYear() + ' Elwin-赵小峰\n' +
     ' * Released under the MIT License.\n' +
     ' */';
@@ -27,67 +27,10 @@ rollup.rollup({
         })
     ]
 }).then(function (bundle) {
-    return write('dist/5singSDK.common.js', bundle.generate({
+    return write('dist/SingSdk.common.js', bundle.generate({
         format: 'cjs',
         banner: banner
     }).code)
-}).then(function () {
-    return rollup.rollup({
-        entry: 'src/index.js',
-        plugins: [
-            replace({
-                'process.env.NODE_ENV': "'development'"
-            }),
-            babel({
-                exclude: 'node_modules/**'
-            })
-        ]
-    }).then(function (bundle) {
-        return write('dist/5singSDK.js', bundle.generate({
-            format: 'umd',
-            banner: banner,
-            moduleName: '5singSDK'
-        }).code)
-    })
-}).then(function () {
-    // Standalone Production Build
-    return rollup.rollup({
-        entry: 'src/index.js',
-        plugins: [
-            replace({
-                'process.env.NODE_ENV': "'production'"
-            }),
-            babel({
-                exclude: 'node_modules/**'
-            })
-        ]
-    }).then(function (bundle) {
-        var code = bundle.generate({
-            format: 'umd',
-            moduleName: '5singSDK',
-            banner: banner
-        }).code;
-
-        var res = uglify.minify(code, {
-            fromString: true,
-            outSourceMap: '5singSDK.min.js.map',
-            output: {
-                preamble: banner,
-                ascii_only: true
-            }
-        });
-
-        // fix uglifyjs sourcemap
-        var map = JSON.parse(res.map);
-        map.sources = ['5singSDK.js'];
-        map.sourcesContent = [code];
-        map.file = '5singSDK.min.js';
-
-        return [
-            write('dist/5singSDK.min.js', res.code),
-            write('dist/5singSDK.min.js.map', JSON.stringify(map))
-        ]
-    }).then(zip)
 }).catch(logError);
 
 function write(dest, code) {
@@ -96,18 +39,6 @@ function write(dest, code) {
             if (err) return reject(err);
             console.log(blue(dest) + ' ' + getSize(code));
             resolve()
-        })
-    })
-}
-
-function zip() {
-    return new Promise(function (resolve, reject) {
-        fs.readFile('dist/5singSDK.min.js', function (err, buf) {
-            if (err) return reject(err);
-            zlib.gzip(buf, function (err, buf) {
-                if (err) return reject(err);
-                write('dist/5singSDK.min.js.gz', buf).then(resolve)
-            })
         })
     })
 }
