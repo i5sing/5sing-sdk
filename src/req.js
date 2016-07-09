@@ -9,22 +9,22 @@ function send(method = 'GET', url, body, option = {}, success, error) {
                 method: method,
                 uri: url,
                 qs: option.qs,
-                body: body,
+                json: option.json || true,
+                form: option.json || body,
+                body: option.json && body,
                 headers: option.headers
             },
             function (err, response, body) {
-                try {
-                    body = JSON.parse(body);
-                } catch (e) {}
-
                 if (err) {
-                    error(err, body, response);
-                    return reject(err, body, response);
+                    error && error(err, body, response);
+                    return reject(err);
                 }
 
-                success(body, response);
-                return resolve(body, response);
+                success && success(body, response);
+                return resolve(body);
             });
+    }).catch(e => {
+        console.log(e);
     });
 }
 

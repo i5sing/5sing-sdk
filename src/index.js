@@ -3,8 +3,12 @@
  */
 const pkg = require('../package.json');
 import {
+    isLogin,
+    search,
+    login,
     getAdvertisements,
     getSpecialColumn,
+    getSpecialColumnDetail,
     getRankOverview,
     getRankUpdateList,
     getRankDetail,
@@ -16,16 +20,31 @@ import {
     getSingers,
     getLatestSingers,
     getUserInfo,
-    getUserSongs
+    getUserSongs,
+    getDailyRecommendSongs,
+    getSingerDynamic,
+    checkFollowUser,
+    checkSongCollection,
+    addVisited,
+    getSquareList,
+    getSongAddr
 } from './api';
 
 let SingSdk = {};
 
 SingSdk.version = pkg.version;
 
+SingSdk.isLogin = isLogin;
+
+SingSdk.search = search;
+
+SingSdk.login = login;
+
 SingSdk.getAdvertisements = getAdvertisements;
 
 SingSdk.getSpecialColumn = getSpecialColumn;
+
+SingSdk.getSpecialColumnDetail = getSpecialColumnDetail;
 
 SingSdk.getRankOverview = getRankOverview;
 
@@ -50,5 +69,19 @@ SingSdk.getLatestSingers = getLatestSingers;
 SingSdk.getUserInfo = getUserInfo;
 
 SingSdk.getUserSongs = getUserSongs;
+
+SingSdk.getDailyRecommendSongs = getDailyRecommendSongs;
+
+SingSdk.getSingerDynamic = getSingerDynamic;
+
+SingSdk.checkFollowUser = checkFollowUser;
+
+SingSdk.checkSongCollection = checkSongCollection;
+
+SingSdk.addVisited = addVisited;
+
+SingSdk.getSquareList = getSquareList;
+
+SingSdk.getSongAddr = getSongAddr;
 
 export default SingSdk;

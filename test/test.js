@@ -85,7 +85,7 @@ describe('SingSdk', function () {
     describe('#getSongCollections(params)', function () {
         it('respond with matching records', function (done) {
             SingSdk.getSongCollections({
-                pageSize: 1
+                pageIndex: 1
             }, function (result) {
                 assert.equal(result.success, true);
                 done();
@@ -186,6 +186,48 @@ describe('SingSdk', function () {
                 songType: 'yc'
             }, function (result) {
                 assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSpecialColumnDetail(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSpecialColumnDetail({
+                channelId: 1,
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#isLogin(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.isLogin({
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#login(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.login({
+                username: 'test@test.com',
+                password: 'test'
+            }, function (result) {
+                assert.equal(result.success, false);
                 done();
             }, function (error) {
                 console.log(error);
