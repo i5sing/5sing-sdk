@@ -70,6 +70,7 @@ params:
 * time: 排行榜更新时间列表中的time
 * pageIndex
 * pageSize
+
 ### getPopularSongs(params, success, error)
 获取最后欢迎歌曲列表  
 params:
@@ -79,54 +80,160 @@ params:
 * time: 排行榜更新时间列表中的time
 
 ### getSongCollections(params, success, error)
+获取歌单列表  
+params:
+* pageIndex
 
 ### getSongCollectionsByLabel(params, success, error)
+筛选歌单  
+params:
+* label: 歌单标签
+* pageIndex
+* pageSize
 
 ### getSongsInSongCollections(params, success, error)
+获取歌单中歌曲列表  
+params:
+* id: 歌单id
 
 ### getSongCollection(params, success, error)
+获取歌单详情  
+params:
+* id: 歌单id
 
 ### getSingers(params, success, error)
+获取歌手列表  
+params:
+* pageIndex,
+* pageSize
 
 ### getLatestSingers(params, success, error)
+获取新入驻歌手列表  
+params:
+* pageIndex
+* pageSize
 
 ### getUserInfo(params, success, error)
+获取用户信息  
+params:
+* userId: 用户id
 
 ### getUserSongs(params, success, error)
+获取该用户上传歌曲列表  
+params:
+* userId: 用户id
+* songType: 歌曲类型
+* pageIndex
+* pageSize
 
 ### isLogin(params, success, error)
+检查登录状态  
+params:
+* sign: token
 
 ### getSingerDynamic(params, success, error)
+获取关注歌手动态  
+params:
+* sign: token
+* pageIndex
+* pageSize
 
 ### checkFollowUser(params, success, error)
+检查是否关注该歌手  
+params:
+* userId: 用户id
+* sign: token
 
 ### checkSongCollection(params, success, error)
+检查是否收藏该歌单  
+params:
+* id: 歌单id
+* sign: token
 
 ### addVisited(params, success, error)
+添加访问足迹  
+params:
+* userId: 访问用户id
+* sign: token
 
 ### getSquareList(params, success, error)
+获取广场列表  
+params:
+* sign: token
+* pageIndex
+* pageSize
 
 ### getSongAddr(params, success, error)
-
+获取歌曲地址  
+params:
+* songId: 歌曲id
+* songType: 歌曲类型
 ### search(params, success, error)
+搜索  
+params:
+* keyword: 关键词
+* type: 类型
+* pageIndex
+* pageSize
 
 ### login(params, success, error)
+登录  
+params:
+* username
+* password
 
 ### getMySongCollections(params, success, error)
+获取收藏的歌单  
+params: 
+* sign: token
+* pageIndex
+* pageSize
 
 ### getSong(params, success, error)
+获取歌曲信息  
+params:
+* songId: 歌曲id
+* songType: 歌曲类型
 
 ### getSongSupport(params, success, error)
+获取歌曲支持信息  
+params:
+* songId: 歌曲id
+* songType: 歌曲类型
+* sign: token
 
 ### getComments(params, success, error)
+获取评论  
+params:
+* id: 歌曲id或用户id
+* kind: 类型
 
 ### getSongFans(params, success, error)
+获取歌曲贡献榜  
+params:
+* songId: 歌曲id
+* songType: 歌曲类型
+* limit: 条数
 
 ### getUserCollections(params, success, error)
+获取歌手关注列表  
+params:
+* userId: 用户id
+* pageIndex
+* pageSize
 
 ### getUserFans(params, success, error)
+获取歌手粉丝列表  
+params:
+* userId: 用户id
+* pageIndex
+* pageSize
 
 ### getUserQuests(params, success, error)
+获取歌手访客列表  
+params:
+* sign: token
+* userId: 用户id
 
 ## Develop
 ```
