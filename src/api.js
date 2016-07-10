@@ -416,7 +416,7 @@ export function checkSongCollection(params, success, error) {
 
 /**
  * 添加访问足迹
- * @param params
+ * @param params {{userId, sign}}
  * @param success
  * @param error
  * @returns {*}
@@ -577,4 +577,175 @@ export function login(params, success, error) {
         success(json, response);
         return json;
     }, error);
+}
+
+/**
+ * 获取收藏的歌单
+ * @param params {{sign , pageIndex, pageSize}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+export function getMySongCollections(params, success, error) {
+    let url = `${host}/song/songlistcollectionlist`,
+        option = {
+            qs: {
+                pageindex: params.pageIndex,
+                pagesize: params.pageSize,
+                sign: params.sign,
+                userfields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,YCRQ,FCRQ,CC,BG,DJ,RC,MC,AU,SR,SG,VG,ISC,F',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取歌曲信息
+ * @param params {{songId, songType}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+export function getSong(params, success, error) {
+    let url = `${host}/song/newget`,
+        option = {
+            qs: {
+                songid: params.songId,
+                songtype: params.songType,
+                songfields: 'ID,SN,SK,SW,SS,ST,SI,CT,M,S,ZQ,WO,ZC,HY,YG,CK,D,RQ,DD,E,R,RC,SG,C,CS,LV,LG,SY,UID,PT,SCSR,SC',
+                userfields: 'ID,NN,I',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+
+/**
+ * 获取歌曲支持信息
+ * @param params {{songId, songType, sign}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+export function getSongSupport(params, success, error) {
+    let url = `${host}/song/songwithuser`,
+        option = {
+            qs: {
+                songid: params.songId,
+                songtype: params.songType,
+                sign: params.sign,
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取评论
+ * @param params {{id, kind}}
+ * @param success
+ * @param error
+ */
+export function getComments(params, success, error) {
+    let url = `${host}/comments/list`,
+        option = {
+            qs: {
+                rootId: params.id,
+                rootKind: params.kind,
+                maxId: 0,
+                fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,DJ',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取歌曲贡献榜
+ * @param params {{songId, songType, limit}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+export function getSongFans(params, success, error) {
+    let url = `${host}/song/listforsupportcardfans`,
+        option = {
+            qs: {
+                songid: params.songId,
+                songtype: params.songType,
+                limit: params.limit,
+                fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取歌手关注列表
+ * @param params {{userId, pageIndex, pageSize}}
+ * @param success
+ * @param error
+ */
+export function getUserCollections (params, success, error) {
+    let url = `${host}/follow/list`,
+        option = {
+            qs: {
+                userid: params.userId,
+                pageindex: params.pageIndex,
+                pagesize: params.pageSize,
+                fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,YCRQ,FCRQ,CC,BG,DJ,RC,MC,AU,SR,SG,VG,ISC,F',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取歌手粉丝列表
+ * @param params {{userId, pageIndex, pageSize}}
+ * @param success
+ * @param error
+ */
+export function getUserFans(params, success, error) {
+    let url = `${host}/fans/list`,
+        option = {
+            qs: {
+                userid: params.userId,
+                pageindex: params.pageIndex,
+                pagesize: params.pageSize,
+                fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,YCRQ,FCRQ,CC,BG,DJ,RC,MC,AU,SR,SG,VG,ISC,F',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取歌手访客列表
+ * @param params {{sign, userId}}
+ * @param success
+ * @param error
+ */
+export function getUserQuests(params, success, error) {
+    let url = `${host}/user/visitors`,
+        option = {
+            qs: {
+                sign: params.sign,
+                owneruserid: params.userId,
+                fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,YCRQ,FCRQ,CC,BG,DJ,RC,MC,AU,SR,SG,VG,ISC,F',
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
 }

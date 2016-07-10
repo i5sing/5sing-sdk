@@ -27,7 +27,15 @@ import {
     checkSongCollection,
     addVisited,
     getSquareList,
-    getSongAddr
+    getSongAddr,
+    getMySongCollections,
+    getSong,
+    getSongSupport,
+    getComments,
+    getSongFans,
+    getUserCollections,
+    getUserFans,
+    getUserQuests
 } from './api';
 
 let SingSdk = {};
@@ -83,5 +91,21 @@ SingSdk.addVisited = addVisited;
 SingSdk.getSquareList = getSquareList;
 
 SingSdk.getSongAddr = getSongAddr;
+
+SingSdk.getMySongCollections = getMySongCollections;
+
+SingSdk.getSong = getSong;
+
+SingSdk.getSongSupport = getSongSupport;
+
+SingSdk.getComments = getComments;
+
+SingSdk.getSongFans = getSongFans;
+
+SingSdk.getUserCollections = getUserCollections;
+
+SingSdk.getUserFans = getUserFans;
+
+SingSdk.getUserQuests = getUserQuests;
 
 export default SingSdk;

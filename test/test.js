@@ -234,4 +234,253 @@ describe('SingSdk', function () {
             });
         });
     });
+
+    describe('#search(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.search({
+                keyword: 'test',
+                type: 'user',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#search(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.search({
+                keyword: 'test',
+                type: 'user',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getDailyRecommendSongs(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getDailyRecommendSongs({
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSingerDynamic(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSingerDynamic({
+                sign: 'token',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#checkFollowUser(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.checkFollowUser({
+                sign: 'token',
+                userId: 'userId'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#checkSongCollection(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.checkSongCollection({
+                sign: 'token',
+                id: 'songId'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#addVisited(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.addVisited({
+                userId: 'userId',
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSquareList(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSquareList({
+                pageIndex: 0,
+                pageSize: 20,
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSongAddr(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSongAddr({
+                songId: '14655530',
+                songType: 'fc'
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getMySongCollections(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getMySongCollections({
+                sign: 'token',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSong(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSong({
+                songId: '14655530',
+                songType: 'fc'
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSongSupport(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSongSupport({
+                songId: '14655530',
+                songType: 'fc',
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getComments(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getComments({
+                id: '11809746',
+                kind: 'fc'
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getSongFans(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getSongFans({
+                songId: '11809746',
+                songType: 'fc',
+                limit: 10
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getUserCollections(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getUserCollections({
+                userId: '13816396',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getUserFans(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getUserFans({
+                userId: '13816396',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getUserQuests(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getUserQuests({
+                userId: '13816396',
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
 });
