@@ -334,8 +334,8 @@ export function getUserSongs(params, success, error) {
 }
 
 /**
- * 检查登录状态 {{sign}}
- * @param params
+ * 检查登录状态
+ * @param params {{sign}}
  * @param success
  * @param error
  * @returns {*}
