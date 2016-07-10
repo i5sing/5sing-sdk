@@ -7,73 +7,126 @@
 $ npm install 5sing-sdk
 ```
 
+### Example
+```javascript
+var SingSdk = require('5sing-sdk');
+
+SingSdk.getAdvertisements({
+  advertId: 23
+}, function (result, response) {
+
+}, function (err, result, response){
+
+});
+
+// or 
+SingSdk.getAdvertisements({
+  advertId: 23
+}).then(function (result) {
+
+}, function (err) {
+
+});
+```
+
 ## API
+* params: api query string
+* success: success callback
+* error: error callback
+* return: promise object
 
-### SingSdk.getAdvertisements(params, success, error)
 
-### SingSdk.getDailyRecommendSongs(params, success, error)
+### getAdvertisements(params, success, error)
+获取轮播图列表  
+params:
+* advertId: 轮播图Id
 
-### SingSdk.getSpecialColumn(success, error)
+### getDailyRecommendSongs(params, success, error)
+获取每日推荐  
+params:
+* pageIndex
+* pageSize
 
-### SingSdk.getSpecialColumnDetail(params, success, error)
+### getSpecialColumn(success, error)
+获取专栏列表  
 
-### SingSdk.getRankOverview(params, success, error)
+### getSpecialColumnDetail(params, success, error)
+获取专栏详情  
+params:
+* channelId: 专栏id
+* pageIndex
+* pageSize
 
-### SingSdk.getRankUpdateList(success, error)
+### getRankOverview(success, error)
+获取排行榜概览  
 
-### SingSdk.getRankDetail(params, success, error)
+### getRankUpdateList(success, error)
+获取排行榜更新时间列表  
 
-### SingSdk.getPopularSongs(params, success, error)
+### getRankDetail(params, success, error)
+获取排行榜详情  
+params:
+* id: list23
+* time: 排行榜更新时间列表中的time
+* pageIndex
+* pageSize
+### getPopularSongs(params, success, error)
+获取最后欢迎歌曲列表  
+params:
+* limit: 条数
+* pageIndex
+* pageSize
+* time: 排行榜更新时间列表中的time
 
-### SingSdk.getSongCollections(params, success, error)
+### getSongCollections(params, success, error)
 
-### SingSdk.getSongCollectionsByLabel(params, success, error)
+### getSongCollectionsByLabel(params, success, error)
 
-### SingSdk.getSongsInSongCollections(params, success, error)
+### getSongsInSongCollections(params, success, error)
 
-### SingSdk.getSongCollection(params, success, error)
+### getSongCollection(params, success, error)
 
-### SingSdk.getSingers(params, success, error)
+### getSingers(params, success, error)
 
-### SingSdk.getLatestSingers(params, success, error)
+### getLatestSingers(params, success, error)
 
-### SingSdk.getUserInfo(params, success, error)
+### getUserInfo(params, success, error)
 
-### SingSdk.getUserSongs(params, success, error)
+### getUserSongs(params, success, error)
 
-### SingSdk.isLogin(params, success, error)
+### isLogin(params, success, error)
 
-### SingSdk.getSingerDynamic(params, success, error)
+### getSingerDynamic(params, success, error)
 
-### SingSdk.checkFollowUser(params, success, error)
+### checkFollowUser(params, success, error)
 
-### SingSdk.checkSongCollection(params, success, error)
+### checkSongCollection(params, success, error)
 
-### SingSdk.addVisited(params, success, error)
+### addVisited(params, success, error)
 
-### SingSdk.getSquareList(params, success, error)
+### getSquareList(params, success, error)
 
-### SingSdk.getSongAddr(params, success, error)
+### getSongAddr(params, success, error)
 
-### SingSdk.search(params, success, error)
+### search(params, success, error)
 
-### SingSdk.login(params, success, error)
+### login(params, success, error)
 
-### SingSdk.getMySongCollections(params, success, error)
+### getMySongCollections(params, success, error)
 
-### SingSdk.getSong(params, success, error)
+### getSong(params, success, error)
 
-### SingSdk.getSongSupport(params, success, error)
+### getSongSupport(params, success, error)
 
-### SingSdk.getComments(params, success, error)
+### getComments(params, success, error)
 
-### SingSdk.getSongFans(params, success, error)
+### getSongFans(params, success, error)
 
-### SingSdk.getUserCollections(params, success, error)
+### getUserCollections(params, success, error)
 
-### SingSdk.getUserFans(params, success, error)
+### getUserFans(params, success, error)
 
-### SingSdk.getUserQuests(params, success, error)
+### getUserQuests(params, success, error)
 
 ## Develop
 ```
