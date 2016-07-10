@@ -1,6 +1,6 @@
 # 5sing-sdk
 
-中国原创音乐基地(5sing)JavaScript开发SDK
+中国原创音乐基地(5sing)JavaScript开发SDK. It's only support node environment. [5sing Mobile API Document](https://github.com/i5sing/5sing-mobile-api)
 
 ## Usage
 ```
