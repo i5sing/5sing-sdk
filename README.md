@@ -122,7 +122,7 @@ params:
 获取该用户上传歌曲列表  
 params:
 * userId: 用户id
-* songType: 歌曲类型
+* songType: 歌曲类型 原创(yc) 翻唱(fc) 伴奏(bz)
 * pageIndex
 * pageSize
 
@@ -167,7 +167,8 @@ params:
 获取歌曲地址  
 params:
 * songId: 歌曲id
-* songType: 歌曲类型
+* songType: 歌曲类型 原创(yc) 翻唱(fc) 伴奏(bz)
+
 ### search(params, success, error)
 搜索  
 params:
@@ -193,26 +194,26 @@ params:
 获取歌曲信息  
 params:
 * songId: 歌曲id
-* songType: 歌曲类型
+* songType: 歌曲类型 原创(yc) 翻唱(fc) 伴奏(bz)
 
 ### getSongSupport(params, success, error)
 获取歌曲支持信息  
 params:
 * songId: 歌曲id
-* songType: 歌曲类型
+* songType: 歌曲类型 原创(yc) 翻唱(fc) 伴奏(bz)
 * sign: token
 
 ### getComments(params, success, error)
 获取评论  
 params:
 * id: 歌曲id或用户id
-* kind: 类型
+* kind: 类型 原创(yc) 翻唱(fc) 伴奏(bz) 用户(guestBook)
 
 ### getSongFans(params, success, error)
 获取歌曲贡献榜  
 params:
 * songId: 歌曲id
-* songType: 歌曲类型
+* songType: 歌曲类型 原创(yc) 翻唱(fc) 伴奏(bz)
 * limit: 条数
 
 ### getUserCollections(params, success, error)
