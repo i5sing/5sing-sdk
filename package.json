@@ -1,8 +1,8 @@
 {
   "name": "5sing-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "dist/5singSDK.common.js",
+  "main": "dist/SingSdk.common.js",
   "scripts": {
     "build": "node build/build.js",
     "test": "mocha test/"

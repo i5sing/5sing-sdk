@@ -4,7 +4,7 @@
 
 ## Usage
 ```
-$ npm install 5sing-sdk
+$ npm install 5sing-sdk --save
 ```
 
 ### Example
