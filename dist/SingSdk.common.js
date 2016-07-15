@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.1
+ * SingSdk v0.0.2
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -346,7 +346,7 @@ function getUserInfo(params, success, error) {
         option = {
         qs: {
             userid: params.userId,
-            userfields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,YCRQ,FCRQ,CC,BG,DJ,RC,MC,AU,SR,SG,VG,ISC,F',
+            fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,YCRQ,FCRQ,CC,BG,DJ,RC,MC,AU,SR,SG,VG,ISC,F',
             version: version
         }
     };
