@@ -547,14 +547,19 @@ export function login(params, success, error) {
     return post(url, body, {json: false}, (body, response) => {
         let cookies = response.headers['set-cookie'],
             sign = '',
+            userId = '',
             json;
         if (cookies) {
             cookies.filter(cookie => {
-                return !~cookie.indexOf('5sing_auth=deleted;');
+                return !~cookie.indexOf('deleted');
             }).forEach(cookie => {
                 if (~cookie.indexOf('5sing_auth=')) {
                     sign = cookie.split(';')[0].replace('5sing_auth=', '');
                     return true;
+                }
+
+                if (~cookie.indexOf('5sing_user_info=')) {
+                    userId = cookie.match(/[0-9][0-9]{4,}/)[0];
                 }
             })
         }
@@ -564,7 +569,8 @@ export function login(params, success, error) {
                 code: 200,
                 success: true,
                 message: '登录成功',
-                sign: sign
+                sign: sign,
+                userId: userId
             };
         } else {
             json = {
@@ -574,9 +580,11 @@ export function login(params, success, error) {
             };
         }
 
-        success(json, response);
+        success && success(json, response);
         return json;
-    }, error);
+    }, (err) => {
+        error && error(err);
+    });
 }
 
 /**
@@ -694,7 +702,7 @@ export function getSongFans(params, success, error) {
  * @param success
  * @param error
  */
-export function getUserCollections (params, success, error) {
+export function getUserCollections(params, success, error) {
     let url = `${host}/follow/list`,
         option = {
             qs: {

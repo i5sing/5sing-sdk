@@ -592,14 +592,19 @@ function login(params, success, error) {
     return post(url, body, { json: false }, function (body, response) {
         var cookies = response.headers['set-cookie'],
             sign = '',
+            userId = '',
             json = void 0;
         if (cookies) {
             cookies.filter(function (cookie) {
-                return !~cookie.indexOf('5sing_auth=deleted;');
+                return !~cookie.indexOf('deleted');
             }).forEach(function (cookie) {
                 if (~cookie.indexOf('5sing_auth=')) {
                     sign = cookie.split(';')[0].replace('5sing_auth=', '');
                     return true;
+                }
+
+                if (~cookie.indexOf('5sing_user_info=')) {
+                    userId = cookie.match(/[0-9][0-9]{4,}/)[0];
                 }
             });
         }
@@ -609,7 +614,8 @@ function login(params, success, error) {
                 code: 200,
                 success: true,
                 message: '登录成功',
-                sign: sign
+                sign: sign,
+                userId: userId
             };
         } else {
             json = {
@@ -619,9 +625,11 @@ function login(params, success, error) {
             };
         }
 
-        success(json, response);
+        success && success(json, response);
         return json;
-    }, error);
+    }, function (err) {
+        error && error(err);
+    });
 }
 
 /**
