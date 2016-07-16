@@ -483,4 +483,17 @@ describe('SingSdk', function () {
             });
         });
     });
+
+    describe('#getMySongs(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getMySongs({
+                userId: '13816396'
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
 });

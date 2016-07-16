@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.2
+ * SingSdk v0.0.3
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -655,6 +655,29 @@ function getMySongCollections(params, success, error) {
 }
 
 /**
+ * 获取收藏的歌曲
+ * @param params {{userId}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function getMySongs(params, success, error) {
+    var url = host + '/song/collection',
+        option = {
+        qs: {
+            userid: params.userId,
+            pageindex: 1,
+            pagesize: 9223372036854775807,
+            songfields: 'ID,SN,FN,SK,UID,ST,DD',
+            userfields: 'ID,NN,I',
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
  * 获取歌曲信息
  * @param params {{songId, songType}}
  * @param success
@@ -875,5 +898,7 @@ SingSdk.getUserCollections = getUserCollections;
 SingSdk.getUserFans = getUserFans;
 
 SingSdk.getUserQuests = getUserQuests;
+
+SingSdk.getMySongs = getMySongs;
 
 module.exports = SingSdk;

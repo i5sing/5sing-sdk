@@ -190,6 +190,11 @@ params:
 * pageIndex
 * pageSize
 
+### getMySongs(params, success, error)
+获取收藏的歌单
+params:
+* userId: 用户id
+
 ### getSong(params, success, error)
 获取歌曲信息  
 params:

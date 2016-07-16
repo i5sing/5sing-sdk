@@ -35,7 +35,8 @@ import {
     getSongFans,
     getUserCollections,
     getUserFans,
-    getUserQuests
+    getUserQuests,
+    getMySongs
 } from './api';
 
 let SingSdk = {};
@@ -107,5 +108,7 @@ SingSdk.getUserCollections = getUserCollections;
 SingSdk.getUserFans = getUserFans;
 
 SingSdk.getUserQuests = getUserQuests;
+
+SingSdk.getMySongs = getMySongs;
 
 export default SingSdk;
