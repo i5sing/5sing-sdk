@@ -36,7 +36,17 @@ import {
     getUserCollections,
     getUserFans,
     getUserQuests,
-    getMySongs
+    getMySongs,
+    addToMyCollections,
+    removeFromMyCollections,
+    syncMySongs,
+    addToMyAttention,
+    removeFromMyAttention,
+    like,
+    getMyRelated,
+    getPrivateMessage,
+    getTopics,
+    getTips
 } from './api';
 
 let SingSdk = {};
@@ -110,5 +120,25 @@ SingSdk.getUserFans = getUserFans;
 SingSdk.getUserQuests = getUserQuests;
 
 SingSdk.getMySongs = getMySongs;
+
+SingSdk.addToMyCollections = addToMyCollections;
+
+SingSdk.removeFromMyCollections = removeFromMyCollections;
+
+SingSdk.syncMySongs = syncMySongs;
+
+SingSdk.addToMyAttention = addToMyAttention;
+
+SingSdk.removeFromMyAttention = removeFromMyAttention;
+
+SingSdk.like = like;
+
+SingSdk.getMyRelated = getMyRelated;
+
+SingSdk.getPrivateMessage = getPrivateMessage;
+
+SingSdk.getTopics = getTopics;
+
+SingSdk.getTips = getTips;
 
 export default SingSdk;

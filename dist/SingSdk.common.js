@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.3
+ * SingSdk v0.0.4
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -826,6 +826,206 @@ function getUserQuests(params, success, error) {
 }
 
 /**
+ * 收藏歌单
+ * @param params {{id, sign}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function AddToMyCollections(params, success, error) {
+    var url = host + '/song/songlistcollectionadd',
+        option = {
+        qs: {
+            id: params.id,
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 取消收藏歌单
+ * @param params {{id, sign}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function removeFromMyCollections(params, success, error) {
+    var url = host + '/song/songlistcollectiondelete',
+        option = {
+        qs: {
+            id: params.id,
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 同步我的收藏歌曲
+ * @param params {{userId, delete, add}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function syncMySongs(params, success, error) {
+    var url = host2 + '/postLocalMusicbox',
+        body = {
+        "Uid": params.userId,
+        "DataDel": params.delete,
+        "DataAdd": params.add
+    };
+
+    return post(url, body, {}, success, error);
+}
+
+/**
+ * 添加歌手到我的关注
+ * @param params {{userId, sign}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function addToMyAttention(params, success, error) {
+    var url = host + '/follow/create',
+        option = {
+        qs: {
+            followuserid: params.userId,
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 从我的关注中移除歌手
+ * @param params {{userId, sign}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function removeFromMyAttention(params, success, error) {
+    var url = host + '/follow/delete',
+        option = {
+        qs: {
+            followuserid: params.userId,
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 点赞
+ * @param params {{id, type, sign, like}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function like(params, success, error) {
+    var url = host + '/message/operateLike',
+        option = {
+        qs: {
+            id: params.id,
+            rootKind: params.type,
+            sign: params.sign,
+            clientliked: !!params.like ? 0 : 1,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 与我相关
+ * @param params {{sign}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function getMyRelated(params, success, error) {
+    var url = host + '/message/related',
+        option = {
+        qs: {
+            maxId: 0,
+            fields: 'ID,NN,I,B,P,C,SX,E,M,VT,CT,TYC,TFC,TBZ,TFD,TFS,SC,DJ',
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取私信
+ * @param params {{userId, sign, pageIndex, pageSize}}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function getPrivateMessage(params, success, error) {
+    var url = host + '/message/showletterbypage',
+        option = {
+        qs: {
+            relationuserid: params.userId,
+            sign: params.sign,
+            page: params.pageIndex,
+            pagesize: params.pageSize,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取主题列表
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function getTopics(success, error) {
+    var url = 'http://topic.5sing.kugou.com/index.php',
+        option = {
+        qs: {
+            m: 'index',
+            f: 'allThemes'
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 获取总览
+ * @param params
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function getTips(params, success, error) {
+    var url = host + '/message/tips',
+        option = {
+        qs: {
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
  * Created by zhaofeng on 7/9/16.
  */
 var pkg = require('../package.json');
@@ -900,5 +1100,25 @@ SingSdk.getUserFans = getUserFans;
 SingSdk.getUserQuests = getUserQuests;
 
 SingSdk.getMySongs = getMySongs;
+
+SingSdk.AddToMyCollections = AddToMyCollections;
+
+SingSdk.removeFromMyCollections = removeFromMyCollections;
+
+SingSdk.syncMySongs = syncMySongs;
+
+SingSdk.addToMyAttention = addToMyAttention;
+
+SingSdk.removeFromMyAttention = removeFromMyAttention;
+
+SingSdk.like = like;
+
+SingSdk.getMyRelated = getMyRelated;
+
+SingSdk.getPrivateMessage = getPrivateMessage;
+
+SingSdk.getTopics = getTopics;
+
+SingSdk.getTips = getTips;
 
 module.exports = SingSdk;

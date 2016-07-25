@@ -1,6 +1,6 @@
 {
   "name": "5sing-sdk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "dist/SingSdk.common.js",
   "scripts": {

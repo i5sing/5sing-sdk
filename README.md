@@ -241,6 +241,66 @@ params:
 * sign: token
 * userId: 用户id
 
+### addToMyCollections(params, success, error)
+收藏歌单  
+params:
+* sign: token
+* id: 歌单id
+
+### removeFromMyCollections(params, success, error)
+取消收藏歌单  
+params:
+* sign: token
+* id: 歌单id
+
+### syncMySongs(params, success, error)
+同步我收藏的歌曲  
+params:
+* userId: 用户id
+* add: []
+* delete: []
+
+### addToMyAttention(params, success, error)
+添加歌手到我的关注  
+params:
+* userId: 用户id
+* sign: token
+
+### removeFromMyAttention(params, success, error)
+从我的关注中移除歌手  
+params:
+* userId: 用户id
+* sign: token
+
+### like(params, success, error)
+点赞  
+params:
+* id: id
+* type: 类型
+* sign: token
+* like: true/false
+
+### getMyRelated(params, success, error)
+与我相关  
+params:
+* sign: token
+
+### getPrivateMessage(params, success, error)
+获取私信  
+params:
+* userId: 用户id
+* sign: token
+* pageIndex: 页码
+* pageSize: 每页条数
+
+### getTopics(params, success, error)
+获取主题列表  
+
+### getTips(params, success, error)
+获取总览  
+params:
+* sign: token
+
 ## Develop
 ```
 $ npm install 
@@ -253,7 +313,7 @@ $ npm run test
 ## Feedback
 If you any questions, use [Issues](https://github.com/i5sing/5sing-sdk/issues).
 
-Sina Weibo: [@赵小小峰](http://weibo.com/5101118493)
+Sina Weibo: [@赵小小峰](http://weibo.com/zfeng217)
 
 ## License
 MIT Licence.

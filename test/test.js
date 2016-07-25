@@ -496,4 +496,117 @@ describe('SingSdk', function () {
             });
         });
     });
+
+    describe('#addToMyCollections(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.addToMyCollections({
+                userId: '13816396',
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#removeFromMyAttention(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.removeFromMyAttention({
+                userId: '13816396',
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#like(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.like({
+                id: '13816396',
+                type: 'yc',
+                sign: 'token',
+                like: true
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getMyRelated(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getMyRelated({
+                sign: 'token',
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getPrivateMessage(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getPrivateMessage({
+                userId: '13816396',
+                sign: 'token',
+                pageIndex: 1,
+                pageSize: 20
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getTopics(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getTopics(function (result) {
+                assert.equal(!!result, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#getTips(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getTips({
+                sign: 'token',
+            }, function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
+    describe('#syncMySongs(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.syncMySongs({
+                sign: 'token',
+                userId: '13816396',
+                add: [],
+                delete: []
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
 });
