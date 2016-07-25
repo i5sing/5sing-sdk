@@ -1,6 +1,6 @@
 # 5sing-sdk
 
-中国原创音乐基地(5sing)JavaScript开发SDK. It only supports for node environment. [5sing Mobile API Document](https://github.com/i5sing/5sing-mobile-api)
+中国原创音乐基地(5sing)NODE-SDK. It only supports for node environment. [5sing Mobile API Document](https://github.com/i5sing/5sing-mobile-api)
 
 ## Usage
 ```
@@ -191,7 +191,7 @@ params:
 * pageSize
 
 ### getMySongs(params, success, error)
-获取收藏的歌单
+获取收藏的歌曲
 params:
 * userId: 用户id
 
@@ -293,7 +293,7 @@ params:
 * pageIndex: 页码
 * pageSize: 每页条数
 
-### getTopics(params, success, error)
+### getTopics(success, error)
 获取主题列表  
 
 ### getTips(params, success, error)
