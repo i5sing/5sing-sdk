@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.4
+ * SingSdk v0.0.5
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -832,7 +832,7 @@ function getUserQuests(params, success, error) {
  * @param error
  * @returns {*}
  */
-function AddToMyCollections(params, success, error) {
+function addToMyCollections(params, success, error) {
     var url = host + '/song/songlistcollectionadd',
         option = {
         qs: {
@@ -866,7 +866,7 @@ function removeFromMyCollections(params, success, error) {
 }
 
 /**
- * 同步我的收藏歌曲
+ * 同步我收藏的歌曲
  * @param params {{userId, delete, add}}
  * @param success
  * @param error
@@ -1008,7 +1008,7 @@ function getTopics(success, error) {
 
 /**
  * 获取总览
- * @param params
+ * @param params {{sign}}
  * @param success
  * @param error
  * @returns {*}
@@ -1101,7 +1101,7 @@ SingSdk.getUserQuests = getUserQuests;
 
 SingSdk.getMySongs = getMySongs;
 
-SingSdk.AddToMyCollections = AddToMyCollections;
+SingSdk.addToMyCollections = addToMyCollections;
 
 SingSdk.removeFromMyCollections = removeFromMyCollections;
 
