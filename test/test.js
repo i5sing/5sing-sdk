@@ -324,6 +324,21 @@ describe('SingSdk', function () {
         });
     });
 
+    describe('#checkSong(params)', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.checkSong({
+                songId: '1532799',
+                songType: 'fc',
+                sign: 'token'
+            }, function (result) {
+                assert.equal(result.success, false);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
+
     describe('#addVisited(params)', function () {
         it('respond with matching records', function (done) {
             SingSdk.addVisited({

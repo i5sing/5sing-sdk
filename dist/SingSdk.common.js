@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.5
+ * SingSdk v0.0.6
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -451,6 +451,27 @@ function checkSongCollection(params, success, error) {
         option = {
         qs: {
             id: params.id,
+            sign: params.sign,
+            version: version
+        }
+    };
+
+    return get(url, option, success, error);
+}
+
+/**
+ * 检查是否收藏歌曲
+ * @param params {[songId, songType, sign]}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+function checkSong(params, success, error) {
+    var url = host + '/song/songwithuser',
+        option = {
+        qs: {
+            songid: params.songId,
+            songtype: params.songType,
             sign: params.sign,
             version: version
         }
@@ -1076,6 +1097,8 @@ SingSdk.getSingerDynamic = getSingerDynamic;
 SingSdk.checkFollowUser = checkFollowUser;
 
 SingSdk.checkSongCollection = checkSongCollection;
+
+SingSdk.checkSong = checkSong;
 
 SingSdk.addVisited = addVisited;
 

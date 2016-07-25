@@ -415,6 +415,27 @@ export function checkSongCollection(params, success, error) {
 }
 
 /**
+ * 检查是否收藏歌曲
+ * @param params {[songId, songType, sign]}
+ * @param success
+ * @param error
+ * @returns {*}
+ */
+export function checkSong(params, success, error) {
+    let url = `${host}/song/songwithuser`,
+        option = {
+            qs: {
+                songid: params.songId,
+                songtype: params.songType,
+                sign: params.sign,
+                version: version
+            }
+        };
+
+    return get(url, option, success, error);
+}
+
+/**
  * 添加访问足迹
  * @param params {{userId, sign}}
  * @param success

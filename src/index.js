@@ -25,6 +25,7 @@ import {
     getSingerDynamic,
     checkFollowUser,
     checkSongCollection,
+    checkSong,
     addVisited,
     getSquareList,
     getSongAddr,
@@ -96,6 +97,8 @@ SingSdk.getSingerDynamic = getSingerDynamic;
 SingSdk.checkFollowUser = checkFollowUser;
 
 SingSdk.checkSongCollection = checkSongCollection;
+
+SingSdk.checkSong = checkSong;
 
 SingSdk.addVisited = addVisited;
 
