@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.6
+ * SingSdk v0.0.7
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -23,8 +23,8 @@ function send() {
             uri: url,
             qs: option.qs,
             json: option.json || true,
-            form: option.json || body,
-            body: option.json && body,
+            form: option.json ? null : body,
+            body: option.json ? body : null,
             headers: option.headers
         }, function (err, response, body) {
             if (err) {
@@ -888,7 +888,7 @@ function removeFromMyCollections(params, success, error) {
 
 /**
  * 同步我收藏的歌曲
- * @param params {{userId, delete, add}}
+ * @param params {{userId, del, add}}
  * @param success
  * @param error
  * @returns {*}
@@ -897,11 +897,10 @@ function syncMySongs(params, success, error) {
     var url = host2 + '/postLocalMusicbox',
         body = {
         "Uid": params.userId,
-        "DataDel": params.delete,
+        "DataDel": params.del,
         "DataAdd": params.add
     };
-
-    return post(url, body, {}, success, error);
+    return post(url, body, { json: true }, success, error);
 }
 
 /**

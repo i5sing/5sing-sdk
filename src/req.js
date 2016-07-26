@@ -10,8 +10,8 @@ function send(method = 'GET', url, body, option = {}, success, error) {
                 uri: url,
                 qs: option.qs,
                 json: option.json || true,
-                form: option.json || body,
-                body: option.json && body,
+                form: option.json ? null : body,
+                body: option.json ? body : null,
                 headers: option.headers
             },
             function (err, response, body) {

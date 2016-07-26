@@ -844,7 +844,7 @@ export function removeFromMyCollections(params, success, error) {
 
 /**
  * 同步我收藏的歌曲
- * @param params {{userId, delete, add}}
+ * @param params {{userId, del, add}}
  * @param success
  * @param error
  * @returns {*}
@@ -853,11 +853,10 @@ export function syncMySongs(params, success, error) {
     let url = `${host2}/postLocalMusicbox`,
         body = {
             "Uid": params.userId,
-            "DataDel": params.delete,
+            "DataDel": params.del,
             "DataAdd": params.add
         };
-
-    return post(url, body, {}, success, error);
+    return post(url, body, {json: true}, success, error);
 }
 
 /**

@@ -612,12 +612,17 @@ describe('SingSdk', function () {
     describe('#syncMySongs(params)', function () {
         it('respond with matching records', function (done) {
             SingSdk.syncMySongs({
-                sign: 'token',
-                userId: '13816396',
-                add: [],
-                delete: []
+                userId: 18913045,
+                add: [
+                    {
+                        "ID": 3147039,
+                        "SK": "yc",
+                        "SN": "积梦成渊"
+                    }
+                ],
+                del: []
             }, function (result) {
-                assert.equal(result.success, false);
+                assert.equal(result.success, true);
                 done();
             }, function (error) {
                 console.log(error);
