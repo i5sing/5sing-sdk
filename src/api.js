@@ -166,6 +166,15 @@ export function getPopularSongs(params, success, error) {
     return get(url, option, success, error);
 }
 
+export function getRecommendCollections(success, error) {
+    let url = `${host2}/getRecommendSongList`,
+        option = {
+            qs: {}
+        };
+
+    return get(url, option, success, error);
+}
+
 /**
  * 获取歌单列表
  * @param params {{pageIndex}}

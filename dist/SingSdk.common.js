@@ -1,5 +1,5 @@
 /*!
- * SingSdk v0.0.7
+ * SingSdk v0.0.8
  * (c) 2016 Elwin-赵小峰
  * Released under the MIT License.
  */
@@ -206,6 +206,15 @@ function getPopularSongs(params, success, error) {
             maxid: 0,
             version: version
         }
+    };
+
+    return get(url, option, success, error);
+}
+
+function getRecommendCollections(success, error) {
+    var url = host2 + '/getRecommendSongList',
+        option = {
+        qs: {}
     };
 
     return get(url, option, success, error);
@@ -1074,6 +1083,8 @@ SingSdk.getRankDetail = getRankDetail;
 SingSdk.getPopularSongs = getPopularSongs;
 
 SingSdk.getSongCollections = getSongCollections;
+
+SingSdk.getRecommendCollections = getRecommendCollections;
 
 SingSdk.getSongCollectionsByLabel = getSongCollectionsByLabel;
 

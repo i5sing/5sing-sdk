@@ -14,6 +14,7 @@ import {
     getRankDetail,
     getPopularSongs,
     getSongCollections,
+    getRecommendCollections,
     getSongCollectionsByLabel,
     getSongsInSongCollections,
     getSongCollection,
@@ -75,6 +76,8 @@ SingSdk.getRankDetail = getRankDetail;
 SingSdk.getPopularSongs = getPopularSongs;
 
 SingSdk.getSongCollections = getSongCollections;
+
+SingSdk.getRecommendCollections = getRecommendCollections;
 
 SingSdk.getSongCollectionsByLabel = getSongCollectionsByLabel;
 

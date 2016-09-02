@@ -629,4 +629,15 @@ describe('SingSdk', function () {
             });
         });
     });
+
+    describe('#getRecommendCollections()', function () {
+        it('respond with matching records', function (done) {
+            SingSdk.getRecommendCollections(function (result) {
+                assert.equal(result.success, true);
+                done();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    });
 });
